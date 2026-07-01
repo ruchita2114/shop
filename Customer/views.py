@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Product 
 
 def home(request):
-    return render(request, "home.html")
+    return HttpResponse("Django is working on Render")
 
 def product(request):
     return render(request, "customer/product.html")
