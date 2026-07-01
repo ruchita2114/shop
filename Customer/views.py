@@ -11,3 +11,9 @@ def about(request):
 
 def contact(request):
     return render(request, "customer/contact.html")
+
+def cart(request):
+    return render(request, "cart.html")
+
+def logout(request):
+    return render(request, "customer/login.html")

@@ -141,7 +141,7 @@ text-shadow: 10px 10px 10px black;
          <li><a href="{% url 'contact' %}">Contact</a></li>
         
       </ul>
-      <form class="navbar-form navbar-left" action="/action_page.php">
+      <form class="navbar-form navbar-left" action="{% url 'search' %}">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
@@ -192,7 +192,7 @@ text-shadow: 10px 10px 10px black;
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading"><a href="door.html" style="color:whitesmoke">DOOR HANGING</a></div>
+        <div class="panel-heading"><a href="{% url 'door' %}" style="color:whitesmoke">DOOR HANGING</a></div>
         <div class="panel-body"><img src="{% static 'door.jpg' %}" class="img-responsive" style="width:100%" alt="Image"></div>
         <div class="panel-footer"><b>Add a festive touch to your home with our beautifully crafted door hangings, featuring intricate designs and vibrant colors.</b></div>
       </div>

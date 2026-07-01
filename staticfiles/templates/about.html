@@ -1,0 +1,201 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: medium;
+      text-transform: uppercase;
+    } 
+    .carousel-caption{
+      font-family: 'Times New Roman', Times, serif;
+text-align: center;
+text-shadow: 10px 10px 10px black;
+    }
+     
+    .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      max-height:450px;
+     
+  }
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    .panel-body{
+            border-width: 5px;
+            opacity: 1;
+            border-color: black;
+            box-shadow: black;
+            border-color: black;
+    }
+    .panel-body:hover{
+            box-shadow: 10px 10px 10px rgb(16, 11, 21);
+            transform: scale(1.1) ;
+        }
+    .p1{
+      color: black;
+    }
+    body{
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
+    }
+    .about-content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .h1p{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            letter-spacing: 2px;
+            word-spacing: 3px;
+        }
+        .p2{
+            text-align: justify;
+        }
+ </style>
+</head>
+<body style="background-image: URL({% static 'images/back5.jpg' %})";>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{% static 'images/backhd1.jpg' %}" alt="Image">
+        <div class="carousel-caption">
+          <h1>Welcome to SRI KRISHNANUGRAHA IDOL SHOP</h1>
+          <h3>Your one-stop shop for all your needs</h3>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="{% static 'images/backhd2.avif' %}" alt="Image">
+        <div class="carousel-caption">
+          <h1>Welcome to SRI KRISHNANUGRAHA IDOL SHOP</h1>
+          <h3>Your one-stop shop for all your needs</h3>
+        </div>
+      </div>    
+        <div class="item">
+          <img src="{% static 'images/backhd3.jpg' %}" alt="Image">
+          <div class="carousel-caption">
+            <h1>Welcome to SRI KRISHNANUGRAHA IDOL SHOP</h1>
+            <h3>Your one-stop shop for all your needs</h3>
+          </div>    
+        </div>  
+      
+      <div class="item">
+        <img src="{% static 'images/backhd4.jpg' %}" alt="Image">
+        <div class="carousel-caption">
+          <h1>Welcome to SRI KRISHNANUGRAHA IDOL SHOP</h1>
+          <h3>Your one-stop shop for all your needs</h3>
+        </div>    
+      </div>  
+    </div>
+    </div>
+    </div>
+    
+    
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="home.html"> <span class="glyphicon glyphicon-home"> Home</span> </a></li>
+        <li><a href="product.html">Products</a></li>
+        <li class="active"><a href="about.html">About</a></li>
+        <li><a href="contact.html"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+        
+      </ul>
+      <form class="navbar-form navbar-left" action="/action_page.php">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default" color="grey"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
+      {% if user.is_authenticated %}
+      <ul class="nav navbar-nav">
+        <li><a href="#">Welcome {{user.first_name}}</a></li>
+        <li><a href="cart.html"> Cart</a></li>
+        <li><a href="logout.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+      {% else %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      </ul>
+        {% endif %}
+      
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 about-content">
+            <h2 class="h1p">About Sri Krishnanugraha Idol Shop</h2><br>
+            <p class="p2"><b>At Sri Krishnanugraha, we believe in bringing the sacred and the beautiful into everyday life. Our shop is dedicated to offering a wide range of meticulously crafted idols, timeless antiques, and essential pooja samagri,various types of malas, deepas,etc to enhance your spiritual journey and home decor.</p>
+            <p class="p2">
+                Started about 45 years ago by Manjunatha N M, our mission is to provide high-quality, authentic items that resonate with your faith and traditions. Each product in our collection is carefully selected for its craftsmanship, cultural significance, and spiritual value.
+            </p>
+            <p class="p2">
+                Whether you are looking for a stunning statue of your favorite deity, a unique antique piece to add character to your home, or the essential items for your daily rituals and festive celebrations, Divine Treasures is your one-stop destination. Our products are sourced from skilled artisans and trusted suppliers, ensuring that you receive only the best.
+            </p>
+            <p class="p2">
+                We are passionate about preserving and promoting our rich heritage and spirituality. We hope our collection inspires you and brings peace, prosperity, and joy into your life.
+            </p>
+            <p class="p2">
+                Thank you for choosing Sri Krishnanugraha. We look forward to serving you and being a part of your spiritual and cultural journey.
+            </b></p>
+    
+        </div>
+    </div>
+</div>
+<br>
+<footer class="container-fluid text-center">
+  <p class="p1">&copy; 2024 Sri Krishnanugraha. All rights reserved.</p>  
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger">Sign Up</button>
+  </form>
+</footer>
+</body>
+</html>
