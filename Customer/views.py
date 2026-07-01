@@ -5,7 +5,7 @@ from .models import Product
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("HOME PAGE WORKING - RENDER OK")
+    return render(request, "home.html")
 def product(request):
     return render(request, "customer/product.html")
 
