@@ -11,115 +11,121 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <style>
-    .navbar {
-      margin-bottom: 50px;
-      border-radius: 0;
-      font-family: 'Times New Roman', Times, serif;
-      font-size: medium;
-      text-transform: uppercase;
+    body{
+      background-image: url("{% static 'back5.jpg' %}");
+      background-size: cover;
+      background-attachment: fixed;
     }
 
-    .carousel-caption {
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
       font-family: 'Times New Roman', Times, serif;
-      text-align: center;
-      text-shadow: 10px 10px 10px black;
+      text-transform: uppercase;
     }
 
     .carousel-inner img {
       width: 100%;
-      margin: auto;
       max-height: 450px;
+      margin: auto;
+    }
+
+    .carousel-caption {
+      text-shadow: 10px 10px 10px black;
     }
 
     footer {
       background-color: #f2f2f2;
-      padding: 25px;
+      padding: 20px;
+      margin-top: 30px;
     }
 
     .panel-body:hover {
       box-shadow: 10px 10px 10px rgb(16, 11, 21);
       transform: scale(1.05);
-    }
-
-    .p1 {
-      color: black;
+      transition: 0.3s;
     }
   </style>
 </head>
 
-<body style="background-image: url({% static 'back5.jpg' %});">
+<body>
 
-<!-- CAROUSEL -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
-
-  <div class="carousel-inner">
-
-    <div class="item active">
-      <img src="{% static 'backhd1.jpg' %}">
-    </div>
-
-    <div class="item">
-      <img src="{% static 'backhd2.avif' %}">
-    </div>
-
-    <div class="item">
-      <img src="{% static 'backhd3.jpg' %}">
-    </div>
-
-    <div class="item">
-      <img src="{% static 'backhd4.jpg' %}">
-    </div>
-
-  </div>
-
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-
-<!-- NAVBAR -->
+<!-- NAVBAR FIRST -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
 
+    <!-- LEFT BRAND -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Idol Shop</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Idol Shop</a>
     </div>
 
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="/customer/product/">Products</a></li>
-      <li><a href="/customer/about/">About</a></li>
-      <li><a href="/customer/contact/">Contact</a></li>
+    <!-- CENTER LINKS -->
+   <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'product' %}">Products</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
     </ul>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Guest</a></li>
-      <li><a href="/customer/cart/">Cart</a></li>
-      <li><a href="/customer/logout/">Logout</a></li>
+    <!-- RIGHT LINKS -->
+   <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome Guest</a></li>
+      <li><a href="{% url 'cart' %}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
 
   </div>
 </nav>
+<!-- CAROUSEL WRAPPED PROPERLY -->
+<div class="container-fluid">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-<!-- CONTENT (KEEP YOUR ORIGINAL SECTIONS HERE IF NEEDED) -->
-<div class="container">
-  <h2 style="text-align:center;">Welcome to Sri Krishnanugraha Idol Shop</h2>
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="{% static 'backhd1.jpg' %}">
+      </div>
+
+      <div class="item">
+        <img src="{% static 'backhd2.avif' %}">
+      </div>
+
+      <div class="item">
+        <img src="{% static 'backhd3.jpg' %}">
+      </div>
+
+      <div class="item">
+        <img src="{% static 'backhd4.jpg' %}">
+      </div>
+
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+  </div>
+</div>
+
+<!-- WELCOME TEXT -->
+<div class="container text-center" style="margin-top:20px;">
+  <h2>Welcome to Sri Krishnanugraha Idol Shop</h2>
 </div>
 
 <!-- FOOTER -->
 <footer class="container-fluid text-center">
-  <p class="p1">&copy; 2024 Sri Krishnanugraha. All rights reserved.</p>
+  <p>&copy; 2024 Sri Krishnanugraha. All rights reserved.</p>
 </footer>
 
 </body>
